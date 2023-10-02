@@ -28,7 +28,8 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void createUsersTable() {
         try (Connection connection = Util.getConnection();
-            PreparedStatement statement = connection.prepareStatement(CREATE_TABLE);) {
+             CallableStatement statement = connection.prepareCall(CREATE_TABLE);) {
+
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

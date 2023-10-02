@@ -3,7 +3,7 @@ package jm.task.core.jdbc.dao;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +14,6 @@ public class UserDaoHibernateImpl implements UserDao {
             "NOT NULL, lastName VARCHAR(45) NOT NULL," +
             "age TINYINT NOT NULL, PRIMARY KEY (id))";
     String DROP_TABLE = "DROP TABLE IF EXISTS users";
-    String USER_SAVE = "INSERT INTO users (name, lastName, age) VALUES (?, ?, ?)";
-    String USER_REMOVE = "DELETE FROM users WHERE id = ?";
     String USER_GET_ALL = "SELECT * FROM users";
     String USER_CLEAN = "TRUNCATE TABLE users";
     public UserDaoHibernateImpl() {
